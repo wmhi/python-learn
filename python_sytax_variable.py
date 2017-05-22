@@ -10,6 +10,9 @@ def print_variable():
     print("local_variable = ", local_variable, "global_variable = ", global_variable)
 
 print_variable()
-print("global_variable = ", global_variable)
 
+def print_global_variable():
+    global global_variable
+    print("global_variable = ", global_variable)
 
+print_global_variable()
