@@ -16,14 +16,16 @@ print(function_first(4))
 
 # closure function
 def function_first(x):
-    print("first function be called")
+    test_variable = 10
+    print("first function be called， test_variable is ", test_variable)
 
     # here define second function
     def function_second(y):
-        print("second function be called")
+        nonlocal test_variable
+        test_variable += 1
+        print("second function be called, test_variable is ", test_variable)
         return x * y
 
-    # here call second function
     return function_second
 
 
