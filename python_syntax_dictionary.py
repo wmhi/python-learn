@@ -65,4 +65,3 @@ print(dictionary_back)
 dictionary_4.clear()
 print(dictionary_4)
 print(dictionary_map)
-

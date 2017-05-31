@@ -1,0 +1,6 @@
+fp = open("./hello.txt", "w+")
+print(fp)
+fp.write("hello world\n")
+txt = fp.readline()
+print(txt)
+fp.close()
