@@ -12,7 +12,8 @@ fp.close()
 # Use the pickle file restore list
 fp = open(cur_path + "\\" + "test_list.pkl", "rb")
 pickle_list = pickle.load(fp)
+fp.close()
 
 print(pickle_list)
 
-
+os.remove(cur_path + "\\" + "test_list.pkl")
