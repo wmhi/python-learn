@@ -3,8 +3,6 @@
 #   coding
 # except Exception[as reason]:
 #    error handle coding
-
-# with ... as ... syntax can auto close file,when the file is not be use  
 try:
     with open("not_exist_file.txt", "r") as fp:
         for each_line in fp:
