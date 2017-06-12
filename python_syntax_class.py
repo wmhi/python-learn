@@ -32,7 +32,8 @@ class ChildTurtle(Turtle):
 child_turtle = ChildTurtle()
 child_turtle.move()
 
-# polymorphic
+# polymorphic:Different objects have different methods
+# ie:Both tigers and turtles can move, but in different ways
 
 # if you have no use "self", you must add  @staticmethod
 # beacuse You don't need to instantiate the object, this
