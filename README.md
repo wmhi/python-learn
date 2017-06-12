@@ -1,4 +1,4 @@
 # python-learn
 python syntax
 first commit to github
-i have change this file ok?
+I hate myself, i want to be the man of the pirate king!
