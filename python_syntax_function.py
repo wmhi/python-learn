@@ -5,7 +5,7 @@ import random
 def first_function():
     print("hello world")
     print("this first function from wm")
-    print("i'm verry excited")
+    print("i'm very excited")
 
 
 first_function()
@@ -26,7 +26,7 @@ second_function(first, second)
 
 def function_doc():
     # this comment won't be print, beacuse it not a part in document
-    "this is test to print documnent"
+    """this is test to print documnent"""
     print("this is print, not document")
 
 
