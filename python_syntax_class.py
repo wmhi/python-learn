@@ -3,6 +3,7 @@
 # Classes must begin with a capital letter
 
 # Encapsulated object
+import random
 
 
 class Turtle:
@@ -48,21 +49,69 @@ child_turtle.move()
 
 
 class Tiger:
-    def __init__(self, name):
-        self.name = name
+    def __init__(self):
+        self.x = random.randint(0, 10)
+        self.y = random.randint(0, 10)
 
     def run(self):
-        print(self.name + ' run')
+        self.x += random.randint(0, 3)
+        self.y += random.randint(0, 3)
+
+        print("position:[%d, %d]" % (self.x,  self.y))
 
 
-tiger = Tiger("wm")
-tiger.run()
+class SuperTiger(Tiger):
+    def __init__(self):
+        # super().__init__() will call derive class __init__
+        super().__init__()
+        self.hungry = True
 
+    def eat(self):
+        if self.hungry:
+            self.hungry = False
+            print("eat")
+        else:
+            print("I'm not hungry")
+
+    def get_hungry(self):
+        return self.hungry
+
+    def set_hungry(self, hungry_state):
+        self.hungry = hungry_state
+
+    def del_hungry(self):
+        del self.hungry
+
+    # you can use property(fget=None, fset=None, fdel=None, doc=None)
+    # This is a little bit like a c function pointer with a structure, than use hungry_state as API
+    hungry_state = property(get_hungry, set_hungry, del_hungry, "I\'m the \'hungry\' property.")
+
+super_tiger = SuperTiger()
+#
+super_tiger.run()
+super_tiger.run()
+super_tiger.eat()
+super_tiger.eat()
+
+print(issubclass(SuperTiger, Tiger))
+print(isinstance(super_tiger, (SuperTiger, Tiger)))
+print(hasattr(super_tiger, "hungry"))
+
+# if "hungry" doesn't exist, getattr will print "the attribute you get don't exist"
+print(getattr(super_tiger, "hungry", "the attribute you get don't exist"))
+setattr(super_tiger, "hungry", True)
+print(getattr(super_tiger, "hungry", "the attribute you get don't exist"))
+# you can use "delattr" delete attribute, ie:delattr(super_tiger, "hungry")
+
+super_tiger.hungry_state = False
+print("hungry:" + str(super_tiger.hungry))
 
 # private and public variable
 # private variable must be get by method
 
+
 class Private:
+    # use __ as a private flag
     __name = "wm"
 
     def name(self):
